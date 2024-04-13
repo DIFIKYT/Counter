@@ -37,11 +37,13 @@ public class Counter : MonoBehaviour
 
     private IEnumerator IncreaseValue()
     {
+        var wait = new WaitForSeconds(_delay);
+
         while (true)
         {
             _currentValue++;
             ValueIncreased?.Invoke();
-            yield return new WaitForSeconds(_delay);
+            yield return wait;
         }
     }
 }
